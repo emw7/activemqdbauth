@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.github.emw7</groupId>
+  <artifactId>activemqdbauth</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>activemqdbauth</name>
+  <description>A plugin that adds database authentication to ActiveMQ</description>
+
+  <url>https://github.com/emw7/activemqdbauth</url>
+  <organization>
+    <name>EMw7</name>
+    <url>https://github.com/emw7</url>
+  </organization>
+
+  <properties>
+    <!--  The &dash;&dash;release option ensures that the code is compiled following the rules of
+          the programming language of the specified release, and that generated classes target the
+          release as well as the public API of that release.
+          https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-release.html-->
+    <maven.compiler.release>11</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
+
+    <activemq.version>5.18.4</activemq.version>
+
+    <!-- https://activemq.apache.org/components/classic/download/classic-05-18-04 -->
+    <activemq.spring.version>5.3.33</activemq.spring.version>
+
+    <spring.version>${activemq.spring.version}</spring.version>
+
+    <spring.data.jdbc.version>2.4.18</spring.data.jdbc.version>
+
+    <spring.security.core.version>5.8.12</spring.security.core.version>
+
+    <build.manifest.section>Build details</build.manifest.section>
+    <build.unknown>UNKNOWN</build.unknown>
+    <build.sha>${build.unknown}</build.sha>
+    <build.pipeline.id>${build.unknown}</build.pipeline.id>
+
+  </properties>
+
+  <build>
+    <finalName>activemqdbauth</finalName>
+  </build>
+
+
+  <!-- <repositories>
+
+    <repository>
+      <id>gitlab-maven</id>
+      <url>https://git.x.com/api/v4/groups/33/-/packages/maven</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+
+  </repositories> -->
+
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-broker</artifactId>
+      <version>${activemq.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-jaas</artifactId>
+      <version>${activemq.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>${spring.data.jpa.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency> -->
+
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jdbc</artifactId>
+      <version>${spring.data.jdbc.version}</version>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jdbc</artifactId>
+      <version>${spring.data.jdbc.version}</version>
+    </dependency> -->
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring.security.core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.7.3</version>
+    </dependency>
+
+    <!-- region:TEST -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>${spring.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <version>3.2.5</version>
+      <scope>test</scope>
+    </dependency> -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.25.3</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- endregion:TEST -->
+
+  </dependencies>
+
+</project>
+
