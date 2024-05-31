@@ -124,7 +124,7 @@
       <version>42.7.3</version>
     </dependency>
 
-    <!-- region:TEST -->
+    <!-- region Test -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
@@ -156,9 +156,8 @@
       <scope>test</scope>
     </dependency>
 
-    <!-- endregion:TEST -->
+    <!-- endregion Test -->
 
   </dependencies>
 
 </project>
-
